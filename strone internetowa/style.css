@@ -1,0 +1,57 @@
+* {
+    color: white;
+}
+#baner {
+    background-color: #C2185B;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+#glowny {
+    background-image: url('tulipany.jpg');
+}
+#blok1 {
+    background-color: #FCE4EC;
+    float: left;
+}
+#blok2 {
+    background-color: #FCE4EC;
+    float: left;
+}
+#blok3 {
+    background-color: #FCE4EC;
+    float: left;
+}
+#stopka1 {
+    background-color: #C2185B;
+    color: white;
+    width: 25%;
+    height: 240px;
+    float: left;
+    clear: both;
+}
+#stopka1 video {
+    width: 25%;
+    height: 240px;
+}
+#stopka2 {
+    background-color: #C2185B;
+    color: white;
+    width: 25%;
+    height: 240px;
+    float: left;
+}
+#stopka3 {
+    background-color: #C2185B;
+    color: white;
+    width: 25%;
+    height: 240px;
+    float: left;
+}
+#stopka4 {
+    background-color: #C2185B;
+    color: white;
+    width: 25%;
+    height: 240px;
+    float: left;
+}
