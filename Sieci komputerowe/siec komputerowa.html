@@ -23,40 +23,78 @@
                 <th>Dostępna ilość</th>
                 <th>Aktualizacja</th>
                 <th>Zamówienie</th>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>Skrętka U/UTP drut</td>
                 <td>metr</td>
                 <td>2</td>
                 <td><button type="button" onclick="aktualizuj()">Aktualizuj</button></td>
                 <td><button type="button" onclick="zamow()">Zamów</button></td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>Skrętka U/UTP linka</td>
                 <td>metr</td>
                 <td>2</td>
                 <td><button type="button" onclick="aktualizuj()">Aktualizuj</button></td>
                 <td><button type="button" onclick="zamow()">Zamów</button></td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>Wtyki 8P8C</td>
                 <td>sztuki</td>
                 <td>10</td>
                 <td><button type="button" onclick="aktualizuj()">Aktualizuj</button></td>
                 <td><button type="button" onclick="zamow()">Zamów</button></td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td>Moduły Keystone</td>
                 <td>sztuki</td>
                 <td>30</td>
                 <td><button type="button" onclick="aktualizuj()">Aktualizuj</button></td>
                 <td><button type="button" onclick="zamow()">Zamów</button></td>
-              </tr>
+            </tr>
         </table>
     </section>
     <section id="stopka">
         <a href="https://sieci.pl/">Nasza strona internetowa</a>
         <p>Stronę przygotował: Mikołaj Sobolewski</p>
     </section>
+    <script>
+        let idZamowienia = 0;
+
+        function zaznaczBraki() {
+            const rows = document.querySelectorAll("table tr");
+            rows.forEach((row, index) => {
+                if (index === 0) return;
+                const cell = row.cells[2];
+                const value = parseInt(cell.textContent, 10);
+                if (value === 0) {
+                    cell.style.backgroundColor = "red";
+                } else if (value >= 1 && value <= 5) {
+                    cell.style.backgroundColor = "yellow";
+                } else {
+                    cell.style.backgroundColor = "Honeydew";
+                }
+            });
+        }
+
+        function aktualizuj() {
+            const row = event.target.closest("tr");
+            const cell = row.cells[2];
+            const newValue = prompt("Podaj nową ilość:");
+            if (newValue !== null) {
+                cell.textContent = newValue;
+                zaznaczBraki();
+            }
+        }
+
+        function zamow() {
+            idZamowienia++;
+            const row = event.target.closest("tr");
+            const productName = row.cells[0].textContent;
+            alert(`Zamówienie nr: ${idZamowienia} Produkt: ${productName}`);
+        }
+
+        document.addEventListener("DOMContentLoaded", zaznaczBraki);
+    </script>
 </body>
 </html>
