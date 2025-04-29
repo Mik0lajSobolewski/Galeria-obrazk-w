@@ -1,0 +1,37 @@
+Zapytanie 1:
+
+SELECT
+    m.nazwa,
+    m.ilosc,
+    p.nazwaProd
+FROM
+    Materialy AS m
+JOIN
+    Producenci AS p ON m.Producenci_id = p.id
+WHERE
+    m.ilosc > 9;
+
+Zapytanie 2:
+
+SELECT
+    m.nazwa AS nazwa_materialu,
+    p.nazwaProd AS nazwa_producenta,
+    j.nazwaJedn AS nazwa_jednostki
+FROM
+    Materialy AS m
+JOIN
+    Producenci AS p ON m.Producenci_id = p.id
+JOIN
+    Jednostki AS j ON m.Jednostki_id = j.id;
+
+Zapytanie 3:
+
+CREATE USER 'zaopatrzenie'@'localhost' IDENTIFIED BY 'Z@op@trzenie';
+
+Zapytanie 4:
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON firma.* TO 'zaopatrzenie'@'localhost';
+FLUSH PRIVILEGES;
+
+
+SHOW GRANTS FOR 'zaopatrzenie'@'localhost';

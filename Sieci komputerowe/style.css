@@ -1,0 +1,49 @@
+* {
+    font-family: 'Verdana';
+    text-align: center;
+}
+#banner {
+    background-color: DarkGreen;
+    color: white;
+    padding: 5px;
+}
+#lewy {
+    background-color: palegreen;
+    width: 30%;
+    height: 500px;
+    padding-bottom: 100px;
+    float: left;
+}
+#prawy {
+    background-color: Honeydew;
+    width: 70%;
+    height: 500px;
+    padding-top: 100px;
+    float: left;
+}
+#stopka {
+    background-color: palegreen;
+    padding: 3px;
+    clear: both;
+}
+table {
+    border-collapse: collapse;
+    margin:auto;
+}
+td {
+    border: 1px solid black;
+    border-color: darkgreen;
+}
+th {
+    border: 1px solid black;
+    border-color: darkgreen;
+}
+button {
+    background-color: darkgreen;
+    color: white;
+    padding: 5px;
+}
+button:hover {
+    background-color: Honeydew;
+    color: DarkGreen;
+}
