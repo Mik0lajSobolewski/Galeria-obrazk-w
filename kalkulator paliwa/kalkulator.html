@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Kalkulator Kosztów Paliwa</h1>
+
+    <label for="rodzajPaliwa">Rodzaj paliwa:</label>
+    <select id="rodzajPaliwa">
+        <option value="benzyna">Benzyna</option>
+        <option value="diesel">Diesel</option>
+        <option value="lpg">LPG</option>
+    </select><br><br>
+
+    <label for="kilometry">Przejechane kilometry:</label>
+    <input type="number" id="kilometry"><br><br>
+
+    <label for="spalanie">Średnie spalanie na 100 km:</label>
+    <input type="number" step="0.1" id="spalanie"><br><br>
+
+    <button onclick="obliczKoszt()">Oblicz koszt</button>
+
+    <p id="wynik"></p>
+
+    <script>
+        function obliczKoszt() {
+            const rodzajPaliwa = document.getElementById("rodzajPaliwa").value;
+            const kilometry = parseFloat(document.getElementById("kilometry").value);
+            const spalanie = parseFloat(document.getElementById("spalanie").value);
+
+            // Ceny paliw za litr (przykładowe)
+            const cenyPaliw = {
+                benzyna: 6.00,
+                diesel: 6.00,
+                lpg: 3.00
+            };
+
+            if (isNaN(kilometry) || isNaN(spalanie)) {
+                document.getElementById("wynik").textContent = "Proszę wprowadzić poprawne liczby.";
+                return;
+            }
+
+            const cenaZaLitr = cenyPaliw[rodzajPaliwa];
+            const zuzytePaliwo = (kilometry / 100) * spalanie;
+            const kosztCalkowity = zuzytePaliwo * cenaZaLitr;
+
+            document.getElementById("wynik").textContent = `Szacowany koszt paliwa: ${kosztCalkowity.toFixed(2)} zł`;
+        }
+    </script>
+</body>
+</html>

@@ -11,22 +11,26 @@
         <h1>Formularz rejstracyjny konferencji Nasze Kwiaty</h1>
     </section>
     <section id="glowny">
-            <h2>Wypełnij formularz</h2>
-        <section id="blok1">
-            <h3>Dane osobowe</h3>
-                <input type="text" id="imie" name="imie" placeholder="Wpisz Imię:" required><br>
-                <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz Nazwisko" required>
-        </section>
-        <section id="blok2">
-            <h3>Dane kontaktowe</h3>
-            <input type="text" id="email" name="email" placeholder="Twój e-mail:" required><br>
-            <input type="text" id="telefon" name="telefon" placeholder="Twój numer telefonu:" required>
-        </section>
-        <section id="blok3">
-            <h3>Hasło do logowania</h3>
-            <input type="text" id="haslo" name="haslo" placeholder="Hasło:" required><br>
-            <input type="text" id="haslo1" name="haslo1" placeholder="Potwórz hasło:" required>
-        </section>
+        <form>
+            <section id="blok1">
+                <h3>Dane osobowe</h3>
+                    <input type="text" id="imie" name="imie" placeholder="Wpisz Imię:" required><br>
+                    <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz Nazwisko" required>
+                    <button type="button" onclick="następnaKarta()">Następna karta</button>
+            </section>
+            <section id="blok2">
+                <h3>Dane kontaktowe</h3>
+                <input type="text" id="email" name="email" placeholder="Twój e-mail:" required><br>
+                <input type="text" id="telefon" name="telefon" placeholder="Twój numer telefonu:" required>
+                <button type="button" onclick="następnaKarta()">Następna karta</button>
+            </section>
+            <section id="blok3">
+                <h3>Hasło do logowania</h3>
+                <input type="text" id="haslo" name="haslo" placeholder="Hasło:" required><br>
+                <input type="text" id="haslo1" name="haslo1" placeholder="Potwórz hasło:" required>
+                <button type="button" onclick="zatwierdz()">Zatwierdz</button>
+            </section>
+        </form>
     </section>
     <section id="stopka1">
         <video controls>
@@ -44,5 +48,37 @@
     <section id="stopka4">
         <p>Formularz wykonał:Mikołaj Sobolewski</p>
     </section>
+    <script>
+        function następnaKarta() {
+            const sekcje = [document.getElementById('blok1'), document.getElementById('blok2'), document.getElementById('blok3')];
+            for (let i = 0; i < sekcje.length; i++) {
+                if (!sekcje[i].classList.contains('hidden')) {
+                    sekcje[i].classList.add('hidden');
+                    if (i + 1 < sekcje.length) {
+                        sekcje[i + 1].classList.remove('hidden');
+                    }
+                    break;
+                }
+            }
+        }
+
+        function zatwierdz() {
+            const haslo = document.getElementById('haslo').value;
+            const haslo1 = document.getElementById('haslo1').value;
+            const imie = document.getElementById('imie').value;
+            const nazwisko = document.getElementById('nazwisko').value;
+
+            if (haslo !== haslo1) {
+                alert('Podane hasła różnią się');
+            } else {
+                alert(`Witaj ${imie} ${nazwisko}`);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('blok2').classList.add('hidden');
+            document.getElementById('blok3').classList.add('hidden');
+        });
+    </script>
 </body>
 </html>

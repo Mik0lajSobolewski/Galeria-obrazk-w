@@ -1,5 +1,5 @@
 * {
-    color: white;
+    font-family: 'Cambria'
 }
 #baner {
     background-color: #C2185B;
@@ -9,18 +9,34 @@
 }
 #glowny {
     background-image: url('tulipany.jpg');
+    background-size: cover;
+    height: 500px;
 }
 #blok1 {
     background-color: #FCE4EC;
+    width: 25%;
+    height: 300x;
+    margin: 25px;
+    padding: 16px;
     float: left;
 }
 #blok2 {
     background-color: #FCE4EC;
+    width: 25%;
+    height: 300px;
+    margin: 25px;
+    padding: 16px;
     float: left;
+    display: none;
 }
 #blok3 {
     background-color: #FCE4EC;
+    width: 25%;
+    height: 300px;
+    margin: 25px;
+    padding: 16px;
     float: left;
+    display: none;
 }
 #stopka1 {
     background-color: #C2185B;
@@ -30,7 +46,7 @@
     float: left;
     clear: both;
 }
-#stopka1 video {
+#stopka1 {
     width: 25%;
     height: 240px;
 }
@@ -54,4 +70,28 @@
     width: 25%;
     height: 240px;
     float: left;
+}
+video {
+    width: 100%;
+    height: 100%;
+}
+button {
+    background-color: #C2185B;
+    color: white;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 60%;
+    cursor: pointer;
+}
+input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.hidden {
+    display: none;
 }
